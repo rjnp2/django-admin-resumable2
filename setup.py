@@ -1,28 +1,28 @@
 import os
 from setuptools import setup
 
-README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+README = open(os.path.join(os.path.dirname(__file__), 'readme.md')).read()
 
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-admin-resumable2',
-    version='3.0',
-    packages=['admin_resumable'],
+    version='1.0',
+    packages=['admin_resumable2'],
     include_package_data=True,
     package_data={
-        'admin_resumable': [
-            'templates/admin_resumable/file_input.html',
-            'static/admin_resumable/js/resumable.js',
+        'admin_resumable2': [
+            'templates/admin_resumable2/file_input.html',
+            'static/admin_resumable2/js/resumable.js',
         ]
     },
     license='MIT License',
     description='A Django app for the uploading of large files from the django admin site.',
     long_description=README,
     url='https://github.com/rjnp2/django-admin-resumable2',
-    author='Jonatron',
-    author_email='jon4tron@gmail.com',
+    author='rjnp2',
+    author_email='rjnp2@outlook.com',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -34,4 +34,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    python_requires=">=3.8",
 )
