@@ -11,7 +11,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy 
 
 class ResumableWidget(FileInput):
-    template_name = 'admin_resumable/file_input.html'
+    template_name = 'admin_resumable2/file_input.html'
     clear_checkbox_label = gettext_lazy('Clear')
 
     def render(self, name, value, attrs=None, **kwargs):
@@ -55,7 +55,7 @@ class AdminResumableWidget(ResumableWidget):
     @property
     def media(self):
         js = ["resumable.js"]
-        return forms.Media(js=[static("admin_resumable/js/%s" % path) for path in js])
+        return forms.Media(js=[static("admin_resumable2/js/%s" % path) for path in js])
 
 class FormResumableFileField(FileField):
     widget = ResumableWidget
