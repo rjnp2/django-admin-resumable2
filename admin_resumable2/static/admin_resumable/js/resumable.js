@@ -35,7 +35,7 @@
     var $ = this;
     $.files = [];
     $.defaults = {
-      chunkSize:1*1024*1024,
+      chunkSize:1*1024*1024*5,
       forceChunkSize:false,
       simultaneousUploads:3,
       fileParameterName:'file',
@@ -170,7 +170,7 @@
           return size + ' bytes';
         } else if(size<1024*1024) {
           return (size/1024.0).toFixed(0) + ' KB';
-        } else if(size<1024*1024*1024) {
+        } else if(size<1024*1024*1024*5) {
           return (size/1024.0/1024.0).toFixed(1) + ' MB';
         } else {
           return (size/1024.0/1024.0/1024.0).toFixed(1) + ' GB';

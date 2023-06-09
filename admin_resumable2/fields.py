@@ -20,7 +20,7 @@ class ResumableWidget(FileInput):
         else:
             file_url = ""
 
-        chunkSize = getattr(settings, 'ADMIN_RESUMABLE_CHUNKSIZE', "1*1024*1024")
+        chunkSize = getattr(settings, 'ADMIN_RESUMABLE_CHUNKSIZE', "1*1024*1024*5")
         context = {'name': name,
             'value': value,
             'id': attrs['id'],

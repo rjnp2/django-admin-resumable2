@@ -1,5 +1,6 @@
 *
 !/admin_resumable2/**
+!/screenshot/**
 !/tests/**
 /tests/media/
 !/*
