@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-admin-resumable2',
-    version='1.0',
+    version='0.1',
     packages=['admin_resumable2'],
     include_package_data=True,
     package_data={
