@@ -32,8 +32,9 @@ Installation
 ::
 
     class Foo(models.Model):
-        bar = models.CharField(max_length=200)
-        foo = ModelAdminResumableFileField()
+        title = models.CharField(max_length=200)
+        file = ModelAdminResumableFileField(upload_to='foo/')
+
 
 
 
@@ -43,7 +44,6 @@ Optionally:
 * Use upload_to instead of ADMIN_RESUMABLE_SUBDIR
 * Set ``ADMIN_RESUMABLE_CHUNKSIZE``, default is ``"1*1024*1024"``
 * Set ``ADMIN_RESUMABLE_STORAGE``, default is ``'django.core.files.storage.FileSystemStorage'`` (must be a subclass of ``django.core.files.storage.FileSystemStorage``, or accept the ``location`` init parameter).  If you don't want the default FileSystemStorage behaviour of creating new files on the server with filenames appended with _1, _2, etc for consecutive uploads of the same file, then you could use this to set your storage class to something like https://djangosnippets.org/snippets/976/
-* Set ``ADMIN_RESUMABLE_SHOW_THUMB``, default is False. Shows a thumbnail next to the "Currently:" link.
 
 
 Versions

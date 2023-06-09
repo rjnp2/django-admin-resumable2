@@ -1,10 +1,18 @@
-# -*- coding: utf-8 -*-
-import fnmatch
+# import the logging library
+import logging
 
-from django.core.files.base import File
+# Create a logger for this file
+# Get an instance of a logger
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
+class ResumableFile:
 
-class ResumableFile(object):
     def __init__(self, storage, kwargs):
         self.storage = storage
         self.kwargs = kwargs
@@ -12,14 +20,16 @@ class ResumableFile(object):
 
     @property
     def chunk_exists(self):
-        """Checks if the requested chunk exists.
+        """
+        Checks if the requested chunk exists.
         """
         return self.storage.exists(self.current_chunk_name) and \
                self.storage.size(self.current_chunk_name) == int(self.kwargs.get('resumableCurrentChunkSize'))
 
     @property
     def chunk_names(self):
-        """Iterates over all stored chunks.
+        """
+        Iterates over all stored chunks.
         """
         chunks = []
         files = sorted(self.storage.listdir('')[1])
@@ -38,7 +48,8 @@ class ResumableFile(object):
         )
 
     def chunks(self):
-        """Iterates over all stored chunks.
+        """
+        Iterates over all stored chunks.
         """
         files = sorted(self.storage.listdir('')[1])
         for f in files:
@@ -51,7 +62,8 @@ class ResumableFile(object):
 
     @property
     def file(self):
-        """Gets the complete file.
+        """
+        Gets the complete file.
         """
         if not self.is_complete:
             raise Exception('Chunk(s) still missing')
@@ -60,7 +72,9 @@ class ResumableFile(object):
 
     @property
     def filename(self):
-        """Gets the filename."""
+        """
+        Gets the filename.
+        """
         filename = self.kwargs.get('resumableFilename')
         if '/' in filename:
             raise Exception('Invalid filename')
@@ -71,9 +85,11 @@ class ResumableFile(object):
 
     @property
     def is_complete(self):
-        """Checks if all chunks are already stored.
         """
-        print("resumableTotalSize",int(self.kwargs.get('resumableTotalSize')),": size",self.size)
+        Checks if all chunks are already stored.
+        """
+        resumable_total_size = self.kwargs.get('resumableTotalSize')
+        logger.info(f'Total size resumable file is {resumable_total_size} : size {self.size}.') 
         return int(self.kwargs.get('resumableTotalSize')) == self.size
 
     def process_chunk(self, file):
@@ -83,7 +99,8 @@ class ResumableFile(object):
 
     @property
     def size(self):
-        """Gets chunks size.
+        """
+        Gets chunks size.
         """
         size = 0
         for chunk in self.chunk_names:

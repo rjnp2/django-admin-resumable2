@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import path
 
-from . import views
+from .views import admin_resumable
 
 urlpatterns = [
-    url(r'^admin_resumable/$', views.admin_resumable, name='admin_resumable'),
+    path('admin_resumable/', admin_resumable, name='admin_resumable'),
 ]
