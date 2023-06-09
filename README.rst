@@ -1,4 +1,4 @@
-django-admin-resumable-js
+django-admin-resumable2
 =========================
 
 Abandoned Notice
@@ -10,23 +10,23 @@ This app is now abandoned. Please see https://github.com/DataGreed/django-admin-
 Summary
 -------
 
-.. image:: https://api.travis-ci.org/jonatron/django-admin-resumable-js.svg?branch=master
-   :target: https://travis-ci.org/jonatron/django-admin-resumable-js
+.. image:: https://api.travis-ci.org/jonatron/django-admin-resumable2.svg?branch=master
+   :target: https://travis-ci.org/jonatron/django-admin-resumable2
 
-django-admin-resumable-js is a django app to allow you to upload large files from within the django admin site.
+django-admin-resumable2 is a django app to allow you to upload large files from within the django admin site.
 
 Screenshot
 ----------
 
-.. image:: https://github.com/jonatron/django-admin-resumable-js/raw/master/screenshot.png?raw=true
+.. image:: https://github.com/jonatron/django-admin-resumable2/raw/master/screenshot.png?raw=true
 
 
 Installation
 ------------
 
-* pip install django-admin-resumable-js
+* pip install django-admin-resumable2
 * Add ``admin_resumable`` to your ``INSTALLED_APPS``
-* Add ``url(r'^admin_resumable/', include('admin_resumable.urls')),`` to your urls.py
+* Add ``path('', include('admin_resumable.urls')),`` to your urls.py
 * Add a model field eg: ``from admin_resumable.fields import ModelAdminResumableFileField``
 
 ::
@@ -68,37 +68,4 @@ depending on the situation.
 
 Compatibility
 -------------
-
-1.2:
-{py27,py32,py33,py34,py35}-django{1.6,1.7,1.8,1.9}.
-python 3.2 and 3.3 supported up to django 1.8.
-
-2.0:
-{py27,py34,py35}-django{1.8,1.9,1.10,1.11}
-
-3.0:
-{py27,py35,py36,py37}-django{1.11,2.0,2.1}
-python 2.7 supported up to django 1.11
-
-
-Running Tests Locally
--------------
-
-Incomplete notes
-[on ubuntu]
-
-::
-
-    sudo apt-get install python3-venv
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install pytest
-    pip install tox
-    tox
-
-Thanks to
----------
-
-Resumable.js https://github.com/23/resumable.js
-
-django-resumable https://github.com/jeanphix/django-resumable
+{py37, py38, py310}-django{4.* above}
