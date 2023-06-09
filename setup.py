@@ -20,6 +20,7 @@ setup(
     license='MIT License',
     description='A Django app for the uploading of large files from the django admin site.',
     long_description=README,
+    long_description_content_type="text/markdown",
     url='https://github.com/rjnp2/django-admin-resumable2',
     author='rjnp2',
     author_email='rjnp2@outlook.com',
@@ -35,4 +36,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     python_requires=">=3.8",
+    extras_require={
+        "dev": ['twine>=4.0.2',]
+    }
 )
