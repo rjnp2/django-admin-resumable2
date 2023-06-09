@@ -6,6 +6,11 @@ django-admin-resumable2 is a django app to allow you to upload large files from 
 Screenshot
 ----------
 
+![screenshot_1](https://github.com/rjnp2/django-admin-resumable2/blob/master/screenshot/screenshot_1.png)
+![screenshot_2](https://github.com/rjnp2/django-admin-resumable2/blob/master/screenshot/screenshot_2.png)
+![screenshot_3](https://github.com/rjnp2/django-admin-resumable2/blob/master/screenshot/screenshot_3.png)
+![screenshot_4](https://github.com/rjnp2/django-admin-resumable2/blob/master/screenshot/screenshot_4.png)
+![screenshot_5](https://github.com/rjnp2/django-admin-resumable2/blob/master/screenshot/screenshot_5.png)
 
 Installation
 ------------
